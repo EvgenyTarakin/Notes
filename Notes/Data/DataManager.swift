@@ -31,8 +31,16 @@ class DataManager: Hashable {
         saveContext()
     }
     
-    func deleteFolder() {
-        
+    func deleteFolder(_ folder: Folder) {
+        let fetchRequest: NSFetchRequest<Folder> = Folder.fetchRequest()
+        if let objects = try? context.fetch(fetchRequest) {
+            for object in objects {
+                if object == folder {
+                    context.delete(object)
+                }
+            }
+        }
+        saveContext()
     }
     
     func deleteAllFolders() {

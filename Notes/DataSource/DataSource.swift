@@ -20,7 +20,7 @@ class DataSource: UITableViewDiffableDataSource<Section, Folder> {
             var snapshot = self.snapshot()
             if let item = itemIdentifier(for: indexPath) {
                 snapshot.deleteItems([item])
-//                dataManager.
+                dataManager.deleteFolder(item)
                 apply(snapshot, animatingDifferences: true)
             }
         }

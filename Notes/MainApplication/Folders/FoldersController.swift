@@ -19,11 +19,19 @@ class FoldersController: UIViewController {
         return foldersView
     }()
     
-    private lazy var alert: UIAlertController = {
+    private lazy var newFolderAlert: UIAlertController = {
         let alert = UIAlertController(title: "Создать новую папку", message: "Напишите название новой папки", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Создать", style: .default, handler: addNewFolder))
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
         alert.addTextField()
+        
+        return alert
+    }()
+    
+    private lazy var deleteAllFoldersAlert: UIAlertController = {
+        let alert = UIAlertController(title: "Вы действительно хотите удалить все папки?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: deleteAllFolders))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
         
         return alert
     }()
@@ -71,15 +79,20 @@ class FoldersController: UIViewController {
     }
     
     @objc private func addNewFolder(_ action: UIAlertAction) {
-        if alert.textFields?[0].text != Optional("") && alert.textFields?[0].text != "" {
-            dataManager.saveFolder(name: alert.textFields?[0].text ?? "", date: "hxuihu")
-            alert.textFields?[0].text = nil
+        if newFolderAlert.textFields?[0].text != Optional("") && newFolderAlert.textFields?[0].text != "" {
+            dataManager.saveFolder(name: newFolderAlert.textFields?[0].text ?? "", date: "hxuihu")
+            newFolderAlert.textFields?[0].text = nil
             foldersView.getTableData(dataManager.folders)
             dismiss(animated: true)
         } else {
             Vibration.error.vibrate()
-            present(alert, animated: true)
+            present(newFolderAlert, animated: true)
         }
+    }
+    
+    @objc private func deleteAllFolders(_ action: UIAlertAction) {
+        dataManager.deleteAllFolders()
+        foldersView.getTableData(dataManager.folders)
     }
 
 }
@@ -94,10 +107,11 @@ extension FoldersController: ButtonDelegate {
     func didSelectButton(_ type: TypeButton) {
         switch type {
         case .trash:
-            dataManager.deleteAllFolders()
-            foldersView.getTableData(dataManager.folders)
+            if dataManager.folders.count != 0 {
+                present(deleteAllFoldersAlert, animated: true)
+            }
         case .addFolder:
-            present(alert, animated: true)
+            present(newFolderAlert, animated: true)
         }
     }
 }
