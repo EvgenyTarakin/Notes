@@ -35,20 +35,23 @@ class FoldersController: UIViewController {
         foldersView.getTableData(dataManager.folders)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let addNewFolderButton = Button(frame: CGRect(x: view.frame.width - 80, y: 0, width: 80, height: 48), type: .addFolder)
+        addNewFolderButton.delegate = self
+        tabBarController?.tabBar.addSubview(addNewFolderButton)
+    }
+    
 //    MARK: - private func
     private func commonInit() {
         title = "Папки"
-//        let addFolderButton = UIBarButtonItem(image: UIImage(systemName: "folder.fill.badge.plus"), style: .done, target: self, action: #selector(tapNewFolderButton))
-//        let deleteAllFolderButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .done, target: self, action: #selector(tapDeleteAllFolderButton))
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .done, target: self, action: #selector(tapSettingsButton))
         navigationItem.rightBarButtonItem = settingsButton
         tabBarController?.tabBar.items?[0].image = nil
         tabBarController?.tabBar.items?[0].title = nil
         
-        let trashButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 48))
-//        trashButton.setImage(UIImage(systemName: "trash.fill"), for: .normal)
-//        trashButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-        trashButton.addTarget(self, action: #selector(tapDeleteAllFolderButton), for: .touchUpInside)
+        let trashButton = Button(frame: CGRect(x: 0, y: 0, width: 80, height: 48), type: .trash)
+        trashButton.delegate = self
         tabBarController?.tabBar.addSubview(trashButton)
         
         view.addSubview(foldersView)
@@ -63,15 +66,6 @@ class FoldersController: UIViewController {
     }
     
 //    MARK: - obj-c
-    @objc private func tapNewFolderButton() {
-        present(alert, animated: true)
-    }
-    
-    @objc private func tapDeleteAllFolderButton() {
-        dataManager.deleteAllFolders()
-        foldersView.getTableData(dataManager.folders)
-    }
-    
     @objc private func tapSettingsButton() {
         
     }
@@ -93,5 +87,17 @@ class FoldersController: UIViewController {
 extension FoldersController: FoldersViewDelegate {
     func didSelectCell() {
 //        <#code#>
+    }
+}
+
+extension FoldersController: ButtonDelegate {
+    func didSelectButton(_ type: TypeButton) {
+        switch type {
+        case .trash:
+            dataManager.deleteAllFolders()
+            foldersView.getTableData(dataManager.folders)
+        case .addFolder:
+            present(alert, animated: true)
+        }
     }
 }
