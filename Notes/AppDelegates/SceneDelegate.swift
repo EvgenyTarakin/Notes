@@ -15,9 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let controller = FolderViewController()
+            let controller = FoldersController()
             let navigationController = UINavigationController(rootViewController: controller)
-            window.rootViewController = navigationController
+            navigationController.navigationBar.prefersLargeTitles = true
+            let tabBarController = UITabBarController()
+            tabBarController.viewControllers = [navigationController]
+            window.rootViewController = tabBarController
             self.window = window
             window.makeKeyAndVisible()
         }

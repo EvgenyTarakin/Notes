@@ -9,19 +9,33 @@
 /* Begin PBXBuildFile section */
 		1BAD908429902D11009DCF3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD908329902D11009DCF3E /* AppDelegate.swift */; };
 		1BAD908629902D11009DCF3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD908529902D11009DCF3E /* SceneDelegate.swift */; };
-		1BAD908D29902D15009DCF3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD908C29902D15009DCF3E /* Assets.xcassets */; };
 		1BAD909029902D15009DCF3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD908E29902D15009DCF3E /* LaunchScreen.storyboard */; };
-		1BAD909B29902E4F009DCF3E /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD909A29902E4F009DCF3E /* FolderViewController.swift */; };
+		1BAD909B29902E4F009DCF3E /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD909A29902E4F009DCF3E /* FoldersController.swift */; };
+		1BAD90A429903658009DCF3E /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90A329903658009DCF3E /* FolderCell.swift */; };
+		1BAD90A7299037AE009DCF3E /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90A6299037AE009DCF3E /* Section.swift */; };
+		1BAD90AB29903809009DCF3E /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90A929903809009DCF3E /* Data.xcdatamodeld */; };
+		1BAD90AD29903D96009DCF3E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90AC29903D96009DCF3E /* DataManager.swift */; };
+		1BAD90AF29903E26009DCF3E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90AE29903E26009DCF3E /* CoreDataManager.swift */; };
+		1BAD90B129911F46009DCF3E /* FoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90B029911F46009DCF3E /* FoldersView.swift */; };
+		1BAD90B429912C0A009DCF3E /* Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90B329912C0A009DCF3E /* Vibration.swift */; };
+		1BAD90B7299157DE009DCF3E /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90B6299157DE009DCF3E /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1BAD908029902D11009DCF3E /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BAD908329902D11009DCF3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BAD908529902D11009DCF3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1BAD908C29902D15009DCF3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BAD908F29902D15009DCF3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BAD909129902D15009DCF3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BAD909A29902E4F009DCF3E /* FolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; };
+		1BAD909A29902E4F009DCF3E /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
+		1BAD90A329903658009DCF3E /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
+		1BAD90A6299037AE009DCF3E /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		1BAD90AA29903809009DCF3E /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
+		1BAD90AC29903D96009DCF3E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		1BAD90AE29903E26009DCF3E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		1BAD90B029911F46009DCF3E /* FoldersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersView.swift; sourceTree = "<group>"; };
+		1BAD90B329912C0A009DCF3E /* Vibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibration.swift; sourceTree = "<group>"; };
+		1BAD90B6299157DE009DCF3E /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +69,13 @@
 			isa = PBXGroup;
 			children = (
 				1BAD909729902DA1009DCF3E /* AppDelegates */,
+				1BAD90B829924C1C009DCF3E /* CustomUI */,
+				1BAD90A8299037E1009DCF3E /* Data */,
+				1BAD90B5299157C7009DCF3E /* DataSource */,
+				1BAD90A529903795009DCF3E /* Enum */,
+				1BAD90B229912BF6009DCF3E /* Vibration */,
 				1BAD909829902DEB009DCF3E /* StartApplication */,
 				1BAD909929902E00009DCF3E /* MainApplication */,
-				1BAD908C29902D15009DCF3E /* Assets.xcassets */,
 				1BAD909129902D15009DCF3E /* Info.plist */,
 			);
 			path = Notes;
@@ -83,17 +101,68 @@
 		1BAD909929902E00009DCF3E /* MainApplication */ = {
 			isa = PBXGroup;
 			children = (
-				1BAD909C29902E59009DCF3E /* Folder */,
+				1BAD909C29902E59009DCF3E /* Folders */,
 			);
 			path = MainApplication;
 			sourceTree = "<group>";
 		};
-		1BAD909C29902E59009DCF3E /* Folder */ = {
+		1BAD909C29902E59009DCF3E /* Folders */ = {
 			isa = PBXGroup;
 			children = (
-				1BAD909A29902E4F009DCF3E /* FolderViewController.swift */,
+				1BAD90A229903643009DCF3E /* Cell */,
+				1BAD90B029911F46009DCF3E /* FoldersView.swift */,
+				1BAD909A29902E4F009DCF3E /* FoldersController.swift */,
 			);
-			path = Folder;
+			path = Folders;
+			sourceTree = "<group>";
+		};
+		1BAD90A229903643009DCF3E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD90A329903658009DCF3E /* FolderCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1BAD90A529903795009DCF3E /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD90A6299037AE009DCF3E /* Section.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		1BAD90A8299037E1009DCF3E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD90A929903809009DCF3E /* Data.xcdatamodeld */,
+				1BAD90AC29903D96009DCF3E /* DataManager.swift */,
+				1BAD90AE29903E26009DCF3E /* CoreDataManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1BAD90B229912BF6009DCF3E /* Vibration */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD90B329912C0A009DCF3E /* Vibration.swift */,
+			);
+			path = Vibration;
+			sourceTree = "<group>";
+		};
+		1BAD90B5299157C7009DCF3E /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD90B6299157DE009DCF3E /* DataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		1BAD90B829924C1C009DCF3E /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +181,8 @@
 			dependencies = (
 			);
 			name = Notes;
+			packageProductDependencies = (
+			);
 			productName = Notes;
 			productReference = 1BAD908029902D11009DCF3E /* Notes.app */;
 			productType = "com.apple.product-type.application";
@@ -140,6 +211,8 @@
 				Base,
 			);
 			mainGroup = 1BAD907729902D11009DCF3E;
+			packageReferences = (
+			);
 			productRefGroup = 1BAD908129902D11009DCF3E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,7 +228,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BAD909029902D15009DCF3E /* LaunchScreen.storyboard in Resources */,
-				1BAD908D29902D15009DCF3E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,9 +238,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BAD90AD29903D96009DCF3E /* DataManager.swift in Sources */,
+				1BAD90A429903658009DCF3E /* FolderCell.swift in Sources */,
+				1BAD90B429912C0A009DCF3E /* Vibration.swift in Sources */,
 				1BAD908429902D11009DCF3E /* AppDelegate.swift in Sources */,
+				1BAD90A7299037AE009DCF3E /* Section.swift in Sources */,
 				1BAD908629902D11009DCF3E /* SceneDelegate.swift in Sources */,
-				1BAD909B29902E4F009DCF3E /* FolderViewController.swift in Sources */,
+				1BAD90B129911F46009DCF3E /* FoldersView.swift in Sources */,
+				1BAD90AF29903E26009DCF3E /* CoreDataManager.swift in Sources */,
+				1BAD90AB29903809009DCF3E /* Data.xcdatamodeld in Sources */,
+				1BAD90B7299157DE009DCF3E /* DataSource.swift in Sources */,
+				1BAD909B29902E4F009DCF3E /* FoldersController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +392,6 @@
 				INFOPLIST_FILE = Notes/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -340,7 +419,6 @@
 				INFOPLIST_FILE = Notes/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -378,6 +456,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1BAD90A929903809009DCF3E /* Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1BAD90AA29903809009DCF3E /* Data.xcdatamodel */,
+			);
+			currentVersion = 1BAD90AA29903809009DCF3E /* Data.xcdatamodel */;
+			path = Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1BAD907829902D11009DCF3E /* Project object */;
 }
