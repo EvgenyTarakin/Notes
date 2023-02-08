@@ -15,6 +15,7 @@ class FoldersController: UIViewController {
     private lazy var foldersView: FoldersView = {
         let foldersView = FoldersView()
         foldersView.delegate = self
+        foldersView.translatesAutoresizingMaskIntoConstraints = false
         
         return foldersView
     }()
@@ -43,6 +44,12 @@ class FoldersController: UIViewController {
         foldersView.getTableData(dataManager.folders)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+        setBackgroundColor()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let addNewFolderButton = Button(frame: CGRect(x: view.frame.width - 80, y: 0, width: 80, height: 48), type: .addFolder)
@@ -63,7 +70,6 @@ class FoldersController: UIViewController {
         tabBarController?.tabBar.addSubview(trashButton)
         
         view.addSubview(foldersView)
-        foldersView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             foldersView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -75,7 +81,8 @@ class FoldersController: UIViewController {
     
 //    MARK: - obj-c
     @objc private func tapSettingsButton() {
-        
+        let controller = SettingsController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc private func addNewFolder(_ action: UIAlertAction) {
@@ -103,6 +110,7 @@ extension FoldersController: FoldersViewDelegate {
     }
 }
 
+// MARK: - extension
 extension FoldersController: ButtonDelegate {
     func didSelectButton(_ type: TypeButton) {
         switch type {

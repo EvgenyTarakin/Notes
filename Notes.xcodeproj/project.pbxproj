@@ -13,7 +13,6 @@
 		1BAD909B29902E4F009DCF3E /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD909A29902E4F009DCF3E /* FoldersController.swift */; };
 		1BAD90A429903658009DCF3E /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90A329903658009DCF3E /* FolderCell.swift */; };
 		1BAD90A7299037AE009DCF3E /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90A6299037AE009DCF3E /* Section.swift */; };
-		1BAD90AB29903809009DCF3E /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90A929903809009DCF3E /* Data.xcdatamodeld */; };
 		1BAD90AD29903D96009DCF3E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90AC29903D96009DCF3E /* DataManager.swift */; };
 		1BAD90AF29903E26009DCF3E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90AE29903E26009DCF3E /* CoreDataManager.swift */; };
 		1BAD90B129911F46009DCF3E /* FoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90B029911F46009DCF3E /* FoldersView.swift */; };
@@ -21,6 +20,10 @@
 		1BAD90B7299157DE009DCF3E /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90B6299157DE009DCF3E /* DataSource.swift */; };
 		1BAD90BA299253EF009DCF3E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90B9299253EF009DCF3E /* Button.swift */; };
 		1BAD90BC29925B04009DCF3E /* TypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90BB29925B04009DCF3E /* TypeButton.swift */; };
+		1BAD90BF2992887A009DCF3E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90BE2992887A009DCF3E /* SettingsView.swift */; };
+		1BAD90C129928893009DCF3E /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90C029928893009DCF3E /* SettingsController.swift */; };
+		1BAD90D829938B2F009DCF3E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90D729938B2F009DCF3E /* UIViewControllerExtension.swift */; };
+		1BAD90D929939260009DCF3E /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90A929903809009DCF3E /* Data.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		1BAD90B6299157DE009DCF3E /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		1BAD90B9299253EF009DCF3E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		1BAD90BB29925B04009DCF3E /* TypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButton.swift; sourceTree = "<group>"; };
+		1BAD90BE2992887A009DCF3E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1BAD90C029928893009DCF3E /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		1BAD90D729938B2F009DCF3E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 				1BAD90A8299037E1009DCF3E /* Data */,
 				1BAD90B5299157C7009DCF3E /* DataSource */,
 				1BAD90A529903795009DCF3E /* Enum */,
+				1BAD90D629938B18009DCF3E /* Extensions */,
 				1BAD90B229912BF6009DCF3E /* Vibration */,
 				1BAD909829902DEB009DCF3E /* StartApplication */,
 				1BAD909929902E00009DCF3E /* MainApplication */,
@@ -106,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				1BAD909C29902E59009DCF3E /* Folders */,
+				1BAD90BD29928865009DCF3E /* Settings */,
 			);
 			path = MainApplication;
 			sourceTree = "<group>";
@@ -169,6 +177,23 @@
 				1BAD90B9299253EF009DCF3E /* Button.swift */,
 			);
 			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		1BAD90BD29928865009DCF3E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD90BE2992887A009DCF3E /* SettingsView.swift */,
+				1BAD90C029928893009DCF3E /* SettingsController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1BAD90D629938B18009DCF3E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD90D729938B2F009DCF3E /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,13 +273,16 @@
 				1BAD90A429903658009DCF3E /* FolderCell.swift in Sources */,
 				1BAD90B429912C0A009DCF3E /* Vibration.swift in Sources */,
 				1BAD908429902D11009DCF3E /* AppDelegate.swift in Sources */,
+				1BAD90D829938B2F009DCF3E /* UIViewControllerExtension.swift in Sources */,
 				1BAD90BC29925B04009DCF3E /* TypeButton.swift in Sources */,
 				1BAD90A7299037AE009DCF3E /* Section.swift in Sources */,
+				1BAD90D929939260009DCF3E /* Data.xcdatamodeld in Sources */,
+				1BAD90C129928893009DCF3E /* SettingsController.swift in Sources */,
 				1BAD908629902D11009DCF3E /* SceneDelegate.swift in Sources */,
+				1BAD90BF2992887A009DCF3E /* SettingsView.swift in Sources */,
 				1BAD90B129911F46009DCF3E /* FoldersView.swift in Sources */,
 				1BAD90BA299253EF009DCF3E /* Button.swift in Sources */,
 				1BAD90AF29903E26009DCF3E /* CoreDataManager.swift in Sources */,
-				1BAD90AB29903809009DCF3E /* Data.xcdatamodeld in Sources */,
 				1BAD90B7299157DE009DCF3E /* DataSource.swift in Sources */,
 				1BAD909B29902E4F009DCF3E /* FoldersController.swift in Sources */,
 			);

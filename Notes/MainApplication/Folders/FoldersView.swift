@@ -24,6 +24,7 @@ class FoldersView: UIView {
         tableView.showsVerticalScrollIndicator = false
         tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         tableView.register(FolderCell.self, forCellReuseIdentifier: FolderCell.reuseIdentifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
         return tableView
     }()

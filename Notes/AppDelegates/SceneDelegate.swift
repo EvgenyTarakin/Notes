@@ -18,6 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let controller = FoldersController()
             let navigationController = UINavigationController(rootViewController: controller)
             navigationController.navigationBar.prefersLargeTitles = true
+            if UserDefaults.standard.bool(forKey: "isDark") {
+                navigationController.overrideUserInterfaceStyle = .dark
+            } else {
+                navigationController.overrideUserInterfaceStyle = .light
+            }
             let tabBarController = UITabBarController()
             tabBarController.viewControllers = [navigationController]
             window.rootViewController = tabBarController
