@@ -37,6 +37,7 @@ class SettingsController: UIViewController {
 //    MARK: - private func
     private func commonInit() {
         setBackgroundColor()
+//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: UserDefaults.standard.object(forKey: "fontSize") as! CGFloat)]
         
         title = "Настройки"
         navigationItem.largeTitleDisplayMode = .never
@@ -66,5 +67,11 @@ extension SettingsController: SettingsViewDelegate {
         UserDefaults.standard.set(false, forKey: "isDark")
         UserDefaults.standard.synchronize()
         setBackgroundColor()
+    }
+    
+    func setFontSize(_ size: CGFloat) {
+//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: size)]
+        UserDefaults.standard.set(size, forKey: "fontSize")
+        UserDefaults.standard.synchronize()
     }
 }

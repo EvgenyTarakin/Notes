@@ -8,11 +8,5 @@
 import UIKit
 
 enum Font {
-    static var fontCofficient: CGFloat {
-        let coefficient = UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.systemFont(ofSize: 32)).pointSize / 32
-        if coefficient > 2 {
-            return CGFloat(1.9)
-        }
-        return coefficient
-    }
+    static var fontValue: CGFloat = 10
 }

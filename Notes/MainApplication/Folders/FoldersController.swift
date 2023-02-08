@@ -11,7 +11,7 @@ class FoldersController: UIViewController {
     
 //    MARK: - property
     private var dataManager = DataManager()
-    
+
     private lazy var foldersView: FoldersView = {
         let foldersView = FoldersView()
         foldersView.delegate = self
@@ -48,6 +48,11 @@ class FoldersController: UIViewController {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
         setBackgroundColor()
+        
+        let fontSize = UserDefaults.standard.object(forKey: "fontSize") as! CGFloat
+//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)]
+//        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)]
+        foldersView.updateFont(fontSize)
     }
     
     override func viewDidLayoutSubviews() {

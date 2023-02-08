@@ -14,7 +14,6 @@ class FolderCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20 * Font.fontCofficient)
         label.numberOfLines = 0
         
         return label
@@ -47,8 +46,9 @@ class FolderCell: UITableViewCell {
     }
     
 //    MARK: - func
-    func configurate(folder: Folder) {
+    func configurate(folder: Folder, fontSize: CGFloat) {
         nameLabel.text = folder.name
+        nameLabel.font = UIFont.systemFont(ofSize: fontSize)
     }
 
 }
