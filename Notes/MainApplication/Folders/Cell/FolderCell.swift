@@ -14,7 +14,7 @@ class FolderCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 20 * Font.fontCofficient)
         label.numberOfLines = 0
         
         return label

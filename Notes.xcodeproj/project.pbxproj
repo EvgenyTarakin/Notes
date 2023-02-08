@@ -24,6 +24,7 @@
 		1BAD90C129928893009DCF3E /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90C029928893009DCF3E /* SettingsController.swift */; };
 		1BAD90D829938B2F009DCF3E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90D729938B2F009DCF3E /* UIViewControllerExtension.swift */; };
 		1BAD90D929939260009DCF3E /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90A929903809009DCF3E /* Data.xcdatamodeld */; };
+		1BAD90DE2993B40C009DCF3E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD90DD2993B40C009DCF3E /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		1BAD90BE2992887A009DCF3E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1BAD90C029928893009DCF3E /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		1BAD90D729938B2F009DCF3E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		1BAD90DD2993B40C009DCF3E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				1BAD90A6299037AE009DCF3E /* Section.swift */,
 				1BAD90BB29925B04009DCF3E /* TypeButton.swift */,
+				1BAD90DD2993B40C009DCF3E /* Font.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				1BAD908629902D11009DCF3E /* SceneDelegate.swift in Sources */,
 				1BAD90BF2992887A009DCF3E /* SettingsView.swift in Sources */,
 				1BAD90B129911F46009DCF3E /* FoldersView.swift in Sources */,
+				1BAD90DE2993B40C009DCF3E /* Font.swift in Sources */,
 				1BAD90BA299253EF009DCF3E /* Button.swift in Sources */,
 				1BAD90AF29903E26009DCF3E /* CoreDataManager.swift in Sources */,
 				1BAD90B7299157DE009DCF3E /* DataSource.swift in Sources */,

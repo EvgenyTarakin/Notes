@@ -60,6 +60,7 @@ class FoldersController: UIViewController {
 //    MARK: - private func
     private func commonInit() {
         title = "Папки"
+        
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .done, target: self, action: #selector(tapSettingsButton))
         navigationItem.rightBarButtonItem = settingsButton
         tabBarController?.tabBar.items?[0].image = nil

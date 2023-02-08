@@ -53,17 +53,13 @@ class DataSource: UITableViewDiffableDataSource<Section, Folder> {
                 if isAfter {
                     print("after destination")
                     snapshot.insertItems([sourceItem], afterItem: destinationItem)
-                }
-                
-                else {
+                } else {
                     print("before destination")
                     snapshot.insertItems([sourceItem], beforeItem: destinationItem)
                 }
             }
             
-        }
-        
-        else {
+        } else {
             print("new index path")
             let destinationSection = snapshot.sectionIdentifiers[destinationIndexPath.section]
             snapshot.deleteItems([sourceItem])

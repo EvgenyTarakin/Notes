@@ -24,13 +24,22 @@ class SettingsController: UIViewController {
         commonInit()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        settingsView.updateLabel()
+    }
+    
 //    MARK: - private func
     private func commonInit() {
         setBackgroundColor()
         
         title = "Настройки"
         navigationItem.largeTitleDisplayMode = .never
-        tabBarController?.tabBar.isHidden = true
         view.addSubview(settingsView)
                 
         NSLayoutConstraint.activate([
