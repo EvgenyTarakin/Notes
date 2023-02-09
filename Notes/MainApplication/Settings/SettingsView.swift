@@ -106,8 +106,8 @@ class SettingsView: UIView {
     
     private lazy var fontSizeSlider: UISlider = {
         let slider = UISlider()
-        slider.minimumValue = 10
-        slider.maximumValue = 35
+        slider.minimumValue = 15
+        slider.maximumValue = 40
         slider.addTarget(self, action: #selector(changeSizeFont), for: .valueChanged)
         
         return slider
@@ -127,7 +127,6 @@ class SettingsView: UIView {
     private func commonInit() {
         addSubview(mainStackView)
         addSubview(fontSizeStackView)
-    
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),

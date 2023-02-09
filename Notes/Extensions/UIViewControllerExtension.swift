@@ -15,4 +15,14 @@ extension UIViewController {
             self.view.backgroundColor = .white
         }
     }
+    
+    func setSettingsButton() {
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .done, target: self, action: #selector(tapSettingsButton))
+        navigationItem.rightBarButtonItem = settingsButton
+    }
+    
+    @objc private func tapSettingsButton() {
+        let controller = SettingsController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }

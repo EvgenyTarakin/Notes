@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B947B852995467C0048984C /* NotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B947B842995467C0048984C /* NotesController.swift */; };
+		1B947B872995468D0048984C /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B947B862995468D0048984C /* NotesView.swift */; };
 		1BAD908429902D11009DCF3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD908329902D11009DCF3E /* AppDelegate.swift */; };
 		1BAD908629902D11009DCF3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD908529902D11009DCF3E /* SceneDelegate.swift */; };
 		1BAD909029902D15009DCF3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD908E29902D15009DCF3E /* LaunchScreen.storyboard */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B947B842995467C0048984C /* NotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesController.swift; sourceTree = "<group>"; };
+		1B947B862995468D0048984C /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		1BAD908029902D11009DCF3E /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BAD908329902D11009DCF3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BAD908529902D11009DCF3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 				1BAD90DD2993B40C009DCF3E /* Settings.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		1B947B83299545F50048984C /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				1B947B862995468D0048984C /* NotesView.swift */,
+				1B947B842995467C0048984C /* NotesController.swift */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 		1BAD907729902D11009DCF3E = {
@@ -123,8 +136,9 @@
 		1BAD909929902E00009DCF3E /* MainApplication */ = {
 			isa = PBXGroup;
 			children = (
-				1BAD909C29902E59009DCF3E /* Folders */,
 				1BAD90BD29928865009DCF3E /* Settings */,
+				1BAD909C29902E59009DCF3E /* Folders */,
+				1B947B83299545F50048984C /* Notes */,
 			);
 			path = MainApplication;
 			sourceTree = "<group>";
@@ -287,11 +301,13 @@
 				1BAD90D829938B2F009DCF3E /* UIViewControllerExtension.swift in Sources */,
 				1BAD90BC29925B04009DCF3E /* TypeButton.swift in Sources */,
 				1BAD90A7299037AE009DCF3E /* Section.swift in Sources */,
+				1B947B852995467C0048984C /* NotesController.swift in Sources */,
 				1BAD90D929939260009DCF3E /* Data.xcdatamodeld in Sources */,
 				1BAD90C129928893009DCF3E /* SettingsController.swift in Sources */,
 				1BAD908629902D11009DCF3E /* SceneDelegate.swift in Sources */,
 				1BAD90BF2992887A009DCF3E /* SettingsView.swift in Sources */,
 				1BAD90B129911F46009DCF3E /* FoldersView.swift in Sources */,
+				1B947B872995468D0048984C /* NotesView.swift in Sources */,
 				1BAD90DE2993B40C009DCF3E /* Settings.swift in Sources */,
 				1BAD90BA299253EF009DCF3E /* Button.swift in Sources */,
 				1BAD90AF29903E26009DCF3E /* CoreDataManager.swift in Sources */,

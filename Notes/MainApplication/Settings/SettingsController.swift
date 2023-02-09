@@ -38,8 +38,8 @@ class SettingsController: UIViewController {
         
         title = "Настройки"
         navigationItem.largeTitleDisplayMode = .never
+        
         view.addSubview(settingsView)
-                
         NSLayoutConstraint.activate([
             settingsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             settingsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),

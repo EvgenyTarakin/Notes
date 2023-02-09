@@ -47,32 +47,31 @@ class FoldersController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
-        setBackgroundColor()
-        foldersView.updateFont()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        tabBarController?.tabBar.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+        
+        let trashButton = Button(frame: CGRect(x: 0, y: 0, width: 80, height: 48), type: .trash)
+        trashButton.delegate = self
+        tabBarController?.tabBar.addSubview(trashButton)
+        
         let addNewFolderButton = Button(frame: CGRect(x: view.frame.width - 80, y: 0, width: 80, height: 48), type: .addFolder)
         addNewFolderButton.delegate = self
         tabBarController?.tabBar.addSubview(addNewFolderButton)
+        
+        setBackgroundColor()
+        foldersView.updateFont()
     }
     
 //    MARK: - private func
     private func commonInit() {
         title = "Папки"
         
-        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .done, target: self, action: #selector(tapSettingsButton))
-        navigationItem.rightBarButtonItem = settingsButton
+        setSettingsButton()
         tabBarController?.tabBar.items?[0].image = nil
         tabBarController?.tabBar.items?[0].title = nil
         
-        let trashButton = Button(frame: CGRect(x: 0, y: 0, width: 80, height: 48), type: .trash)
-        trashButton.delegate = self
-        tabBarController?.tabBar.addSubview(trashButton)
-        
         view.addSubview(foldersView)
-        
         NSLayoutConstraint.activate([
             foldersView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             foldersView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -82,11 +81,6 @@ class FoldersController: UIViewController {
     }
     
 //    MARK: - obj-c
-    @objc private func tapSettingsButton() {
-        let controller = SettingsController()
-        navigationController?.pushViewController(controller, animated: true)
-    }
-    
     @objc private func addNewFolder(_ action: UIAlertAction) {
         if newFolderAlert.textFields?[0].text != Optional("") && newFolderAlert.textFields?[0].text != "" {
             dataManager.saveFolder(name: newFolderAlert.textFields?[0].text ?? "", date: "hxuihu")
@@ -107,8 +101,10 @@ class FoldersController: UIViewController {
 }
 
 extension FoldersController: FoldersViewDelegate {
-    func didSelectCell() {
-//        <#code#>
+    func didSelectCell(_ indexPath: IndexPath) {
+        let controller = NotesController()
+        controller.configurate(dataManager.folders[indexPath.item])
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -122,6 +118,7 @@ extension FoldersController: ButtonDelegate {
             }
         case .addFolder:
             present(newFolderAlert, animated: true)
+        default: break
         }
     }
 }

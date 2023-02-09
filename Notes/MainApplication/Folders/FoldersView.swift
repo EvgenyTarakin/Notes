@@ -9,17 +9,17 @@ import UIKit
 
 // MARK: - protocol
 protocol FoldersViewDelegate: AnyObject {
-    func didSelectCell()
+    func didSelectCell(_ indexPath: IndexPath)
 }
 
 class FoldersView: UIView {
     
 //    MARK: - property
-    weak var delegate: FoldersViewDelegate?
+    var delegate: FoldersViewDelegate?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.allowsSelection = false
+        tableView.delegate = self
         tableView.separatorStyle = .singleLine
         tableView.showsVerticalScrollIndicator = false
         tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -48,9 +48,7 @@ class FoldersView: UIView {
     
 //    MARK: - private func
     private func commonInit() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(tableView)
-
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: topAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -73,4 +71,10 @@ class FoldersView: UIView {
         tableView.reloadData()
     }
 
+}
+
+extension FoldersView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelectCell(indexPath)
+    }
 }
