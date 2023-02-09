@@ -10,6 +10,8 @@ import UIKit
 class SettingsController: UIViewController {
     
 //    MARK: - property
+    private var settings = Settings()
+    
     private lazy var settingsView: SettingsView = {
         let settingsView = SettingsView()
         settingsView.delegate = self
@@ -29,15 +31,10 @@ class SettingsController: UIViewController {
         tabBarController?.tabBar.isHidden = true
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        settingsView.updateLabel()
-    }
-    
 //    MARK: - private func
     private func commonInit() {
         setBackgroundColor()
-//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: UserDefaults.standard.object(forKey: "fontSize") as! CGFloat)]
+        setSettings()
         
         title = "Настройки"
         navigationItem.largeTitleDisplayMode = .never
@@ -49,6 +46,10 @@ class SettingsController: UIViewController {
             settingsView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             settingsView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
+    }
+    
+    private func setSettings() {
+        settingsView.setupSettings(theme: settings.theme, size: settings.size as! CGFloat, type: settings.type as! UIFont.Weight)
     }
 
 }
@@ -69,8 +70,17 @@ extension SettingsController: SettingsViewDelegate {
         setBackgroundColor()
     }
     
+    func setRegularFont() {
+        UserDefaults.standard.set(UIFont.Weight.regular, forKey: "fontType")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func setBoldFont() {
+        UserDefaults.standard.set(UIFont.Weight.bold, forKey: "fontType")
+        UserDefaults.standard.synchronize()
+    }
+    
     func setFontSize(_ size: CGFloat) {
-//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: size)]
         UserDefaults.standard.set(size, forKey: "fontSize")
         UserDefaults.standard.synchronize()
     }

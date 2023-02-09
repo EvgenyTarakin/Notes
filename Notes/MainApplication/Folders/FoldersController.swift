@@ -48,11 +48,7 @@ class FoldersController: UIViewController {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
         setBackgroundColor()
-        
-        let fontSize = UserDefaults.standard.object(forKey: "fontSize") as! CGFloat
-//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)]
-//        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)]
-        foldersView.updateFont(fontSize)
+        foldersView.updateFont()
     }
     
     override func viewDidLayoutSubviews() {

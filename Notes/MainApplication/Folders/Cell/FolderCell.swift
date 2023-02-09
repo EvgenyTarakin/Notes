@@ -46,9 +46,9 @@ class FolderCell: UITableViewCell {
     }
     
 //    MARK: - func
-    func configurate(folder: Folder, fontSize: CGFloat) {
+    func configurate(folder: Folder, fontSize: CGFloat, fontType: UIFont.Weight) {
         nameLabel.text = folder.name
-        nameLabel.font = UIFont.systemFont(ofSize: fontSize)
+        nameLabel.font = UIFont.systemFont(ofSize: fontSize, weight: fontType)
     }
 
 }

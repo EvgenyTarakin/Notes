@@ -11,6 +11,8 @@ import UIKit
 protocol SettingsViewDelegate: AnyObject {
     func setDarkTheme()
     func setLightTheme()
+    func setBoldFont()
+    func setRegularFont()
     func setFontSize(_ size: CGFloat)
 }
 
@@ -18,10 +20,9 @@ class SettingsView: UIView {
     
 //    MARK: - property
     weak var delegate: SettingsViewDelegate?
-    private lazy var fontSize = UserDefaults.standard.object(forKey: "fontSize") as! CGFloat
     
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [themeStackView, fontStackView])
+        let stackView = UIStackView(arrangedSubviews: [themeStackView, fontTypeStackView])
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.distribution = .fillEqually
@@ -44,7 +45,6 @@ class SettingsView: UIView {
     private lazy var themeLabel: UILabel = {
         let label = UILabel()
         label.text = "Темная тема"
-        label.font = .systemFont(ofSize: CGFloat(fontSize))
         label.adjustsFontForContentSizeCategory = true
         
         return label
@@ -58,8 +58,8 @@ class SettingsView: UIView {
         return switchTheme
     }()
     
-    private lazy var fontStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [fontLabel, fontSwitch])
+    private lazy var fontTypeStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [fontTypeLabel, fontTypeSwitch])
         stackView.axis = .horizontal
         stackView.spacing = 16
         stackView.distribution = .fill
@@ -68,19 +68,18 @@ class SettingsView: UIView {
         return stackView
     }()
     
-    private lazy var fontLabel: UILabel = {
+    private lazy var fontTypeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Обычный шрифт"
-        label.font = .systemFont(ofSize: CGFloat(fontSize))
+        label.text = "Жирный шрифт"
         label.adjustsFontForContentSizeCategory = true
 
         return label
     }()
     
-    private lazy var fontSwitch: UISwitch = {
+    private lazy var fontTypeSwitch: UISwitch = {
         let switchTheme = UISwitch()
         switchTheme.onTintColor = .systemBlue
-        switchTheme.addTarget(self, action: #selector(changeFont), for: .valueChanged)
+        switchTheme.addTarget(self, action: #selector(changeTypeFont), for: .valueChanged)
         
         return switchTheme
     }()
@@ -100,7 +99,6 @@ class SettingsView: UIView {
         let label = UILabel()
         label.text = "Размер шрифта"
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: CGFloat(fontSize))
         label.adjustsFontForContentSizeCategory = true
         
         return label
@@ -110,7 +108,6 @@ class SettingsView: UIView {
         let slider = UISlider()
         slider.minimumValue = 10
         slider.maximumValue = 35
-        slider.value = Float(fontSize)
         slider.addTarget(self, action: #selector(changeSizeFont), for: .valueChanged)
         
         return slider
@@ -130,12 +127,6 @@ class SettingsView: UIView {
     private func commonInit() {
         addSubview(mainStackView)
         addSubview(fontSizeStackView)
-        
-        if UserDefaults.standard.bool(forKey: "isDark") {
-            themeSwitch.isOn = true
-        } else {
-            themeSwitch.isOn = false
-        }
     
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
@@ -145,7 +136,7 @@ class SettingsView: UIView {
             themeStackView.heightAnchor.constraint(equalToConstant: 44),
             
             themeLabel.heightAnchor.constraint(equalTo: themeStackView.heightAnchor),
-            fontLabel.heightAnchor.constraint(equalTo: fontStackView.heightAnchor),
+            fontTypeLabel.heightAnchor.constraint(equalTo: fontTypeStackView.heightAnchor),
             
             fontSizeStackView.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 48),
             fontSizeStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
@@ -154,11 +145,26 @@ class SettingsView: UIView {
         ])
     }
     
-//    MARK: - func
-    func updateLabel() {
-//        let font = UIFont.systemFont(ofSize: Font.fontValue)
-//        themeLabel.font = font
-//        fontLabel.font = font
+    private func updateFonts(size: CGFloat, type: UIFont.Weight) {
+        themeLabel.font = .systemFont(ofSize: size, weight: type)
+        fontTypeLabel.font = .systemFont(ofSize: size, weight: type)
+        fontSizeLabel.font = .systemFont(ofSize: size, weight: type)
+    }
+    
+//    MARK: - func 
+    func setupSettings(theme: Bool, size: CGFloat, type: UIFont.Weight) {
+        fontSizeSlider.value = Float(size)
+        updateFonts(size: size, type: type)
+        if theme {
+            themeSwitch.isOn = true
+        } else {
+            themeSwitch.isOn = false
+        }
+        if type == .bold {
+            fontTypeSwitch.isOn = true
+        } else {
+            fontTypeSwitch.isOn = false
+        }
     }
     
 //    MARK: - obj-c
@@ -170,18 +176,24 @@ class SettingsView: UIView {
         }
     }
     
-    @objc private func changeFont(_ sender: UISwitch) {
-        
+    @objc private func changeTypeFont(_ sender: UISwitch) {
+        if sender.isOn {
+            updateFonts(size: themeLabel.font.pointSize, type: .bold)
+            delegate?.setBoldFont()
+        } else {
+            updateFonts(size: themeLabel.font.pointSize, type: .regular)
+            delegate?.setRegularFont()
+        }
     }
     
     @objc private func changeSizeFont( _ sender: UISlider) {
-        let value = Int(sender.value)
-        let font = UIFont.systemFont(ofSize: CGFloat(value))
-        themeLabel.font = font
-        fontLabel.font = font
-        fontSizeLabel.font = font
-        
-        delegate?.setFontSize(CGFloat(value))
+        let size = CGFloat(Int(sender.value))
+        if fontTypeSwitch.isOn {
+            updateFonts(size: size, type: .bold)
+        } else {
+            updateFonts(size: size, type: .regular)
+        }
+        delegate?.setFontSize(size)
     }
 
 }

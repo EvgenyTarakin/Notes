@@ -16,7 +16,6 @@ class FoldersView: UIView {
     
 //    MARK: - property
     weak var delegate: FoldersViewDelegate?
-    private lazy var fontSize = UserDefaults.standard.object(forKey: "fontSize") as! CGFloat
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -32,7 +31,7 @@ class FoldersView: UIView {
     
     private lazy var dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, item) -> UITableViewCell? in
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FolderCell.reuseIdentifier, for: indexPath) as? FolderCell else { return UITableViewCell() }
-        cell.configurate(folder: item, fontSize: self.fontSize)
+        cell.configurate(folder: item, fontSize: Settings().size as! CGFloat, fontType: Settings().type as! UIFont.Weight)
         
         return cell
     })
@@ -70,8 +69,7 @@ class FoldersView: UIView {
         }
     }
     
-    func updateFont(_ fontSize: CGFloat) {
-        self.fontSize = fontSize
+    func updateFont() {
         tableView.reloadData()
     }
 
