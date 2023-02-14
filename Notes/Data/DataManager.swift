@@ -22,6 +22,16 @@ class DataManager: Hashable {
         }
     }
     
+    var notes: [Notes] {
+        let fetchRequest: NSFetchRequest<Notes> = Notes.fetchRequest()
+        do {
+            return try context.fetch(fetchRequest).reversed()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            return []
+        }
+    }
+    
     func saveFolder(name: String, date: String) {
         guard let entity = NSEntityDescription.entity(forEntityName: "Folder", in: context) else { return }
         

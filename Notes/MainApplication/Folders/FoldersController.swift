@@ -37,6 +37,26 @@ class FoldersController: UIViewController {
         return alert
     }()
     
+    private lazy var countLabel: Label = {
+        let label = Label(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 48), type: .folders)
+        
+        return label
+    }()
+    
+    private lazy var trashButton: Button = {
+        let button = Button(frame: CGRect(x: 0, y: 0, width: 80, height: 48), type: .trash)
+        button.delegate = self
+        
+        return button
+    }()
+    
+    private lazy var addNewFolderButton: Button = {
+        let button = Button(frame: CGRect(x: view.frame.width - 80, y: 0, width: 80, height: 48), type: .addFolder)
+        button.delegate = self
+        
+        return button
+    }()
+    
 //    MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,13 +70,9 @@ class FoldersController: UIViewController {
         tabBarController?.tabBar.subviews.forEach {
             $0.removeFromSuperview()
         }
-        
-        let trashButton = Button(frame: CGRect(x: 0, y: 0, width: 80, height: 48), type: .trash)
-        trashButton.delegate = self
+
+        tabBarController?.tabBar.addSubview(countLabel)
         tabBarController?.tabBar.addSubview(trashButton)
-        
-        let addNewFolderButton = Button(frame: CGRect(x: view.frame.width - 80, y: 0, width: 80, height: 48), type: .addFolder)
-        addNewFolderButton.delegate = self
         tabBarController?.tabBar.addSubview(addNewFolderButton)
         
         setBackgroundColor()
@@ -83,7 +99,12 @@ class FoldersController: UIViewController {
 //    MARK: - obj-c
     @objc private func addNewFolder(_ action: UIAlertAction) {
         if newFolderAlert.textFields?[0].text != Optional("") && newFolderAlert.textFields?[0].text != "" {
-            dataManager.saveFolder(name: newFolderAlert.textFields?[0].text ?? "", date: "hxuihu")
+            let date = NSDate()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd.MM"
+            let time = formatter.string(from: date as Date)
+            
+            dataManager.saveFolder(name: newFolderAlert.textFields?[0].text ?? "", date: time)
             newFolderAlert.textFields?[0].text = nil
             foldersView.getTableData(dataManager.folders)
             dismiss(animated: true)
@@ -105,6 +126,10 @@ extension FoldersController: FoldersViewDelegate {
         let controller = NotesController()
         controller.configurate(dataManager.folders[indexPath.item])
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func updateCountLabel(_ count: Int) {
+        countLabel.configurate(count)
     }
 }
 

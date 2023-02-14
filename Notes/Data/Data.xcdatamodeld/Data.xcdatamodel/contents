@@ -4,4 +4,9 @@
         <attribute name="date" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
     </entity>
+    <entity name="Notes" representedClassName=".Notes" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="text" attributeType="String"/>
+    </entity>
 </model>

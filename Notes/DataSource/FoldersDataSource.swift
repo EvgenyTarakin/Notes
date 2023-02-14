@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DataSource: UITableViewDiffableDataSource<Section, Folder> {
+class FoldersDataSource: UITableViewDiffableDataSource<Section, Folder> {
     
     private var dataManager = DataManager()
     

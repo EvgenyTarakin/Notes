@@ -24,6 +24,16 @@ class FolderCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -44,18 +54,22 @@ class FolderCell: UITableViewCell {
         selectionStyle = .none
         
         addSubview(folderImageView)
+        addSubview(dateLabel)
         addSubview(nameLabel)
         NSLayoutConstraint.activate([
-            folderImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            folderImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
             folderImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            folderImageView.heightAnchor.constraint(equalToConstant: 48),
             folderImageView.widthAnchor.constraint(equalTo: folderImageView.heightAnchor),
+            folderImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             nameLabel.leftAnchor.constraint(equalTo: folderImageView.rightAnchor, constant: 16),
-            nameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20)
+            nameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -80),
+            
+            dateLabel.leftAnchor.constraint(equalTo: nameLabel.rightAnchor, constant: 8),
+            dateLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            dateLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
@@ -63,6 +77,9 @@ class FolderCell: UITableViewCell {
     func configurate(folder: Folder, fontSize: CGFloat, fontType: UIFont.Weight) {
         nameLabel.text = folder.name
         nameLabel.font = UIFont.systemFont(ofSize: fontSize, weight: fontType)
+        
+        dateLabel.text = folder.date
+        dateLabel.font = UIFont.systemFont(ofSize: fontSize / 2, weight: fontType)
     }
 
 }

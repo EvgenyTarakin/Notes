@@ -10,6 +10,7 @@ import UIKit
 // MARK: - protocol
 protocol FoldersViewDelegate: AnyObject {
     func didSelectCell(_ indexPath: IndexPath)
+    func updateCountLabel(_ count: Int) 
 }
 
 class FoldersView: UIView {
@@ -29,7 +30,7 @@ class FoldersView: UIView {
         return tableView
     }()
     
-    private lazy var dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, item) -> UITableViewCell? in
+    private lazy var dataSource = FoldersDataSource(tableView: tableView, cellProvider: { (tableView, indexPath, item) -> UITableViewCell? in
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FolderCell.reuseIdentifier, for: indexPath) as? FolderCell else { return UITableViewCell() }
         cell.configurate(folder: item, fontSize: Settings().size as! CGFloat, fontType: Settings().type as! UIFont.Weight)
         
@@ -65,6 +66,7 @@ class FoldersView: UIView {
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
+        delegate?.updateCountLabel(data.count)
     }
     
     func updateFont() {
@@ -76,5 +78,9 @@ class FoldersView: UIView {
 extension FoldersView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelectCell(indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        delegate?.updateCountLabel(dataSource.snapshot().numberOfItems)
     }
 }
