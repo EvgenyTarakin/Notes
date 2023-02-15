@@ -13,7 +13,7 @@ protocol FoldersViewDelegate: AnyObject {
     func updateCountLabel(_ count: Int) 
 }
 
-class FoldersView: UIView {
+final class FoldersView: UIView {
     
 //    MARK: - property
     var delegate: FoldersViewDelegate?

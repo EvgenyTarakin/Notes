@@ -17,7 +17,7 @@ extension UIViewController {
     }
     
     func setSettingsButton() {
-        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .done, target: self, action: #selector(tapSettingsButton))
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .done, target: self, action: #selector(tapSettingsButton))
         navigationItem.rightBarButtonItem = settingsButton
     }
     

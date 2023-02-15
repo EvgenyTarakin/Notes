@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1B266004299BA923009F18D6 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B266003299BA923009F18D6 /* Label.swift */; };
+		1B266007299BC86A009F18D6 /* NewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B266006299BC86A009F18D6 /* NewNoteController.swift */; };
+		1B266009299BC879009F18D6 /* NewNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B266008299BC879009F18D6 /* NewNoteView.swift */; };
+		1B26600C299BDF32009F18D6 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26600B299BDF32009F18D6 /* Note.swift */; };
+		1B7D38B0299D2C7500C914E5 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D38AF299D2C7500C914E5 /* UITextFieldExtension.swift */; };
+		1B7D38B2299D2DC300C914E5 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D38B1299D2DC300C914E5 /* UITextView.swift */; };
 		1B947B852995467C0048984C /* NotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B947B842995467C0048984C /* NotesController.swift */; };
 		1B947B872995468D0048984C /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B947B862995468D0048984C /* NotesView.swift */; };
 		1B947B8A299920470048984C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B947B89299920470048984C /* NoteCell.swift */; };
@@ -34,6 +39,11 @@
 
 /* Begin PBXFileReference section */
 		1B266003299BA923009F18D6 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		1B266006299BC86A009F18D6 /* NewNoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteController.swift; sourceTree = "<group>"; };
+		1B266008299BC879009F18D6 /* NewNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteView.swift; sourceTree = "<group>"; };
+		1B26600B299BDF32009F18D6 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		1B7D38AF299D2C7500C914E5 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		1B7D38B1299D2DC300C914E5 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		1B947B842995467C0048984C /* NotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesController.swift; sourceTree = "<group>"; };
 		1B947B862995468D0048984C /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		1B947B89299920470048984C /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -71,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B266005299BBAEE009F18D6 /* NewNote */ = {
+			isa = PBXGroup;
+			children = (
+				1B266008299BC879009F18D6 /* NewNoteView.swift */,
+				1B266006299BC86A009F18D6 /* NewNoteController.swift */,
+			);
+			path = NewNote;
+			sourceTree = "<group>";
+		};
+		1B26600A299BDF17009F18D6 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				1B26600B299BDF32009F18D6 /* Note.swift */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
 		1B947B82299544FB0048984C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,8 +149,8 @@
 				1BAD90B5299157C7009DCF3E /* DataSource */,
 				1BAD90A529903795009DCF3E /* Enum */,
 				1BAD90D629938B18009DCF3E /* Extensions */,
-				1BAD90B229912BF6009DCF3E /* Vibration */,
 				1B947B82299544FB0048984C /* Settings */,
+				1B26600A299BDF17009F18D6 /* Note */,
 				1BAD909829902DEB009DCF3E /* StartApplication */,
 				1BAD909929902E00009DCF3E /* MainApplication */,
 				1BAD909129902D15009DCF3E /* Info.plist */,
@@ -154,6 +181,7 @@
 				1BAD90BD29928865009DCF3E /* Settings */,
 				1BAD909C29902E59009DCF3E /* Folders */,
 				1B947B83299545F50048984C /* Notes */,
+				1B266005299BBAEE009F18D6 /* NewNote */,
 			);
 			path = MainApplication;
 			sourceTree = "<group>";
@@ -181,6 +209,7 @@
 			children = (
 				1BAD90A6299037AE009DCF3E /* Section.swift */,
 				1BAD90BB29925B04009DCF3E /* TypeButton.swift */,
+				1BAD90B329912C0A009DCF3E /* Vibration.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -193,14 +222,6 @@
 				1BAD90AE29903E26009DCF3E /* CoreDataManager.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		1BAD90B229912BF6009DCF3E /* Vibration */ = {
-			isa = PBXGroup;
-			children = (
-				1BAD90B329912C0A009DCF3E /* Vibration.swift */,
-			);
-			path = Vibration;
 			sourceTree = "<group>";
 		};
 		1BAD90B5299157C7009DCF3E /* DataSource */ = {
@@ -234,6 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				1BAD90D729938B2F009DCF3E /* UIViewControllerExtension.swift */,
+				1B7D38AF299D2C7500C914E5 /* UITextFieldExtension.swift */,
+				1B7D38B1299D2DC300C914E5 /* UITextView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,11 +338,15 @@
 				1BAD90A429903658009DCF3E /* FolderCell.swift in Sources */,
 				1BAD90B429912C0A009DCF3E /* Vibration.swift in Sources */,
 				1BAD908429902D11009DCF3E /* AppDelegate.swift in Sources */,
+				1B7D38B2299D2DC300C914E5 /* UITextView.swift in Sources */,
 				1B266004299BA923009F18D6 /* Label.swift in Sources */,
 				1BAD90D829938B2F009DCF3E /* UIViewControllerExtension.swift in Sources */,
 				1BAD90BC29925B04009DCF3E /* TypeButton.swift in Sources */,
+				1B7D38B0299D2C7500C914E5 /* UITextFieldExtension.swift in Sources */,
+				1B266009299BC879009F18D6 /* NewNoteView.swift in Sources */,
 				1BAD90A7299037AE009DCF3E /* Section.swift in Sources */,
 				1B947B8A299920470048984C /* NoteCell.swift in Sources */,
+				1B26600C299BDF32009F18D6 /* Note.swift in Sources */,
 				1B947B852995467C0048984C /* NotesController.swift in Sources */,
 				1BAD90D929939260009DCF3E /* Data.xcdatamodeld in Sources */,
 				1BAD90C129928893009DCF3E /* SettingsController.swift in Sources */,
@@ -327,6 +354,7 @@
 				1BAD90BF2992887A009DCF3E /* SettingsView.swift in Sources */,
 				1BAD90B129911F46009DCF3E /* FoldersView.swift in Sources */,
 				1B947B872995468D0048984C /* NotesView.swift in Sources */,
+				1B266007299BC86A009F18D6 /* NewNoteController.swift in Sources */,
 				1BAD90DE2993B40C009DCF3E /* Settings.swift in Sources */,
 				1BAD90BA299253EF009DCF3E /* Button.swift in Sources */,
 				1BAD90AF29903E26009DCF3E /* CoreDataManager.swift in Sources */,

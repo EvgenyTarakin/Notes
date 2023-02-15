@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Label: UIView {
+final class Label: UIView {
     
 //    MARK: - TypeLabel
     enum TypeLabel {
@@ -49,7 +49,6 @@ class Label: UIView {
 //    MARK: - private func
     private func commonInit() {
         addSubview(label)
-        
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topAnchor),
             label.bottomAnchor.constraint(equalTo: bottomAnchor),

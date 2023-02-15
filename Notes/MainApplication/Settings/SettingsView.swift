@@ -16,7 +16,7 @@ protocol SettingsViewDelegate: AnyObject {
     func setFontSize(_ size: CGFloat)
 }
 
-class SettingsView: UIView {
+final class SettingsView: UIView {
     
 //    MARK: - property
     weak var delegate: SettingsViewDelegate?

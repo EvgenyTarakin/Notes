@@ -12,7 +12,7 @@ protocol ButtonDelegate: AnyObject {
     func didSelectButton(_ type: TypeButton)
 }
 
-class Button: UIView {
+final class Button: UIView {
     
 //    MARK: - property
     private var type: TypeButton!
@@ -21,6 +21,7 @@ class Button: UIView {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
@@ -28,6 +29,7 @@ class Button: UIView {
     private lazy var button: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
@@ -46,11 +48,8 @@ class Button: UIView {
     
 //    MARK: - private func
     private func commonInit() {
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        button.translatesAutoresizingMaskIntoConstraints = false
         addSubview(imageView)
         addSubview(button)
-        
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),

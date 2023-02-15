@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotesDataSource: UITableViewDiffableDataSource<Section, Notes> {
+final class NotesDataSource: UITableViewDiffableDataSource<Section, Note> {
     
     private var dataManager = DataManager()
     

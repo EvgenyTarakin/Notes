@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Settings {
+final class Settings {
     lazy var theme = UserDefaults.standard.bool(forKey: "isDark")
     lazy var size = UserDefaults.standard.object(forKey: "fontSize") ?? CGFloat(20) 
     lazy var type = UserDefaults.standard.object(forKey: "fontType") ?? UIFont.Weight.regular

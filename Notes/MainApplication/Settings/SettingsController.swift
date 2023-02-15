@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsController: UIViewController {
+final class SettingsController: UIViewController {
     
 //    MARK: - property
     private var settings = Settings()

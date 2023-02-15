@@ -3,10 +3,6 @@
     <entity name="Folder" representedClassName=".Folder" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-    </entity>
-    <entity name="Notes" representedClassName=".Notes" syncable="YES" codeGenerationType="class">
-        <attribute name="date" attributeType="String"/>
-        <attribute name="name" attributeType="String"/>
-        <attribute name="text" attributeType="String"/>
+        <attribute name="notes" attributeType="Transformable" customClassName=".[Note]"/>
     </entity>
 </model>

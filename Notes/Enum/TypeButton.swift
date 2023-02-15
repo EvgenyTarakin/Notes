@@ -14,8 +14,8 @@ enum TypeButton {
     
     var image: UIImage? {
         switch self {
-        case .trash: return UIImage(systemName: "trash.fill")
-        case .addFolder: return UIImage(systemName: "folder.fill.badge.plus")
+        case .trash: return UIImage(systemName: "trash")
+        case .addFolder: return UIImage(systemName: "folder.badge.plus")
         case .addNote: return UIImage(systemName: "square.and.pencil")
         }
     }

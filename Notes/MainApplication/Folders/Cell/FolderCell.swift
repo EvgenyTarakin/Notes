@@ -7,14 +7,14 @@
 
 import UIKit
 
-class FolderCell: UITableViewCell {
+final class FolderCell: UITableViewCell {
     
 //    MARK: - property
     static let reuseIdentifier = String(describing: FolderCell.self)
     
     private lazy var folderImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "folder.fill")
+        imageView.image = UIImage(systemName: "folder")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

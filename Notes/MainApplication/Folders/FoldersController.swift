@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FoldersController: UIViewController {
+final class FoldersController: UIViewController {
     
 //    MARK: - property
     private var dataManager = DataManager()
@@ -124,7 +124,7 @@ class FoldersController: UIViewController {
 extension FoldersController: FoldersViewDelegate {
     func didSelectCell(_ indexPath: IndexPath) {
         let controller = NotesController()
-        controller.configurate(dataManager.folders[indexPath.item])
+        controller.configurate(dataManager.folders[indexPath.row], index: indexPath.row)
         navigationController?.pushViewController(controller, animated: true)
     }
     

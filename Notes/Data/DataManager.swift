@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class DataManager: Hashable {
+final class DataManager: Hashable {
     
     private let context = CoreDataManager.persistentContainer.viewContext
     
@@ -22,22 +22,13 @@ class DataManager: Hashable {
         }
     }
     
-    var notes: [Notes] {
-        let fetchRequest: NSFetchRequest<Notes> = Notes.fetchRequest()
-        do {
-            return try context.fetch(fetchRequest).reversed()
-        } catch let error as NSError {
-            print(error.localizedDescription)
-            return []
-        }
-    }
-    
-    func saveFolder(name: String, date: String) {
+    func saveFolder(name: String, date: String, notes: [Note] = []) {
         guard let entity = NSEntityDescription.entity(forEntityName: "Folder", in: context) else { return }
         
         let objects = Folder(entity: entity, insertInto: context)
         objects.name = name
         objects.date = date
+        objects.notes = notes
         saveContext()
     }
     
@@ -61,6 +52,24 @@ class DataManager: Hashable {
             }
         }
         saveContext()
+    }
+    
+    func saveNote(index: Int, name: String, date: String, text: String) {
+//        guard let entity = NSEntityDescription.entity(forEntityName: "Folder", in: context) else { return }
+        
+//        let objects = Folder(entity: entity, insertInto: context)
+        
+//        let fetchRequest: NSFetchRequest<Folder> = Folder.fetchRequest()
+//        if let objects = try? context.fetch(fetchRequest) {
+////            for object in objects {
+////                if object == folder {
+////                    folders[index].notes?.append(Note(name: name, date: date, text: text))
+//            objects[index].notes?.append(Note(name: name, date: date, text: text))
+////                }
+////            }
+//            context.insert(objects[index])
+//        }
+//        saveContext()
     }
     
     private func saveContext() {
